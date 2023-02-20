@@ -21,7 +21,12 @@ public class FileUploadForm extends ActionForm {
        
        
        
-	
+	/**
+	 * This method is used for validation
+	 * @param mapping
+	 * @param request
+	 * @return
+	 */
 	  public ActionErrors validateFileUpload(ActionMapping mapping,
 	  HttpServletRequest request) { 
 		ActionErrors errors = new ActionErrors();
