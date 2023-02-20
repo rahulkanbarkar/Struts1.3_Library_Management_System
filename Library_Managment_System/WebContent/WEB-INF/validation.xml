@@ -1,0 +1,526 @@
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<form-validation>
+
+<!-- ADMIN REG reg.jsp -->
+
+<formset>
+    <form name="admin">
+    <field property="id" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.id.required" />
+                <msg name="maxlength" key="error.user.id.length" />
+                <msg name="minlength" key="error.user.id.length" />
+                <msg name="mask" key="error.user.id.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>^[0-9_]*$</var-value> 
+                </var>
+ 
+            </field>
+            
+             <field property="firstname" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.firstname.required" />
+                <msg name="maxlength" key="error.user.firstname.length" />
+                <msg name="minlength" key="error.user.firstname.length" />
+                <msg name="mask" key="error.user.firstname.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                     <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+ 
+            </field>
+            
+            
+            
+            
+                <field property="lastname" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.lastname.required" />
+                <msg name="maxlength" key="error.user.lastname.length" />
+                <msg name="minlength" key="error.user.lastname.length" />
+                <msg name="mask" key="error.user.lastname.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var> 
+                <var>
+                    <var-name>mask</var-name>
+                     <var-value>^[a-zA-Z]*$</var-value>
+                    <!-- <var-value>^[a-zA-Z0-9-_]*$</var-value> -->
+                </var>
+ 
+            </field>
+            
+           
+  <field property="dob" depends="required,date">
+                <msg name="required" key="error.user.dob.required" />
+                <arg name="date" key="error.user.dob.date"/>
+        <var>
+            <var-name>datePattern</var-name>
+            <var-value>yyyy/MM/dd</var-value>
+        </var>
+   </field> 
+            
+            
+            
+            
+          <field property="age" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.age.required" />
+                <msg name="maxlength" key="error.user.age.length" />
+                <msg name="minlength" key="error.user.age.length" />
+                <msg name="mask" key="error.user.age.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>^[0-9_]*$</var-value> 
+                </var>
+ 
+            </field>
+            
+            
+           <!--    <field property="city" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.city.required" />
+                <msg name="maxlength" key="error.user.city.length" />
+                <msg name="minlength" key="error.user.city.length" />
+                <msg name="mask" key="error.user.city.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>2</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                     <var-value>^[a-zA-Z]*$</var-value>
+                        <var-value>^[a-zA-Z0-9-_]*$</var-value> 
+                </var>
+                </field>
+                 -->
+                
+                
+                 
+            <field property="password" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.password.required" />
+                <msg name="maxlength" key="error.user.password.length" />
+                <msg name="minlength" key="error.user.password.length" />
+                <msg name="mask" key="error.user.password.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>15</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z0-9]*$</var-value>
+                </var>
+ 
+            </field> 
+                
+        
+        
+    </form>
+</formset>
+
+<!-- LIBRARY VALIDATION TO SAVE BOOKS addbooks.jsp-->                                  <!-- LIBRARY VALIDATION TO SAVE BOOKS addbooks.jsp-->
+
+<formset>
+    <form name="library">
+    <field property="bookid" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.bookid.required" />
+                <msg name="maxlength" key="error.user.bookid.length" />
+                <msg name="minlength" key="error.user.bookid.length" />
+                <msg name="mask" key="error.user.bookid.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>^[0-9_]*$</var-value> 
+                </var>
+ 
+            </field>
+            
+     
+                <field property="bookname" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.bookname.required" />
+                <msg name="maxlength" key="error.user.bookname.length" />
+                <msg name="minlength" key="error.user.bookname.length" />
+                <msg name="mask" key="error.user.bookname.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                    
+                      <var-value>^[a-z A-Z 0-9-_]*$</var-value>
+                </var>
+ 
+            </field>
+            
+            
+            
+            
+                <field property="author" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.author.required" />
+                <msg name="maxlength" key="error.user.author.length" />
+                <msg name="minlength" key="error.user.author.length" />
+                <msg name="mask" key="error.user.author.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var> 
+                <var>
+                    <var-name>mask</var-name>
+                    
+                     <var-value>^[a-z A-Z]*$</var-value>
+                </var>
+ 
+            </field>
+                        
+            
+              <field property="bookcost" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.bookcost.required" />
+                <msg name="maxlength" key="error.user.bookcost.length" />
+                <msg name="minlength" key="error.user.bookcost.length" />
+                <msg name="mask" key="error.user.bookcost.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                 
+                       <var-value>^[0-9_]*$</var-value> 
+                </var>
+                </field>
+        
+        
+    </form>
+</formset>
+
+
+<!-- EMPLOYE  SAVE  empdetails.jsp-->                                                      <!-- EMPLOYE  SAVE  empdetails.jsp-->
+
+<formset>
+    <form name="emp">
+                
+                
+                <field property="userid" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.userid.required" />
+                <msg name="maxlength" key="error.user.userid.length" />
+                <msg name="minlength" key="error.user.userid.length" />
+                <msg name="mask" key="error.user.userid.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>^[0-9_]*$</var-value> 
+                </var>
+ 
+            </field>
+            
+            
+                <field property="username" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.user.username.required" />
+                <msg name="maxlength" key="error.user.username.length" />
+                <msg name="minlength" key="error.user.username.length" />
+                <msg name="mask" key="error.user.username.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var> 
+                <var>
+                    <var-name>mask</var-name>
+                    
+                     <var-value>^[a-z A-Z]*$</var-value>
+                </var>
+ 
+            </field>
+   
+    </form>
+</formset>
+
+
+<!-- Borrow BOOK VALIDATION TO BORROW BOOKS borrowbook.jsp-->          <!-- Borrow BOOK VALIDATION TO BORROW BOOKS borrowbook.jsp-->
+
+
+
+<formset>
+    <form name="borrow">
+       
+                <field property="bookid" depends="required,maxlength,minlength,mask">
+                <msg name="required" key="error.user.bookid.required" />
+                <msg name="maxlength" key="error.user.bookid.length" />
+                <msg name="minlength" key="error.user.bookid.length" />
+                <msg name="mask" key="error.user.bookid.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>[0-9]$</var-value> 
+                </var>
+ 
+            </field>
+            
+                <field property="userid" depends="required,maxlength,minlength,mask">
+                <msg name="required" key="error.user.userid.required" />
+                <msg name="maxlength" key="error.user.userid.length" />
+                <msg name="minlength" key="error.user.userid.length" />
+                <msg name="mask" key="error.user.userid.invalid" />
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+               <var-value>[0-9]$</var-value> 
+                </var>
+                
+                
+            </field>
+            
+                       
+      <field property="issuedate" depends="required,date">
+                 <msg name="required" key="error.user.issuedate.required" />
+                 <arg name="date" key="error.user.issuedate.date"/>
+               <var>
+                 <var-name>datePattern</var-name>
+                 <var-value>yyyy/MM/dd</var-value>
+            </var>
+       </field>          
+     </form>
+</formset>
+</form-validation>
+
+
+            
+

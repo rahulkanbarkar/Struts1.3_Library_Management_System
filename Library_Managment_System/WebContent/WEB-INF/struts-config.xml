@@ -1,0 +1,186 @@
+
+<struts-config>
+	<form-beans>
+		<form-bean name="login" type="beans.LoginForm"></form-bean>
+		<form-bean name="library" type="beans.Library"></form-bean> 
+		<form-bean name="admin" type="beans.Admin"> </form-bean>
+		<form-bean name="emp" type="beans.Employee"> </form-bean>
+		<form-bean name="borrow" type="beans.borrowbook"> </form-bean>
+		<form-bean name="uploadform" type="beans.FileUploadForm" ></form-bean>
+        
+		</form-beans>
+<!-- MYnew changes for edit and delete -->
+	<action-mappings>
+		 <action path="/savebook" name="library"  type="controller.NewAddLibraryAction" input="/Newaddbook.jsp" parameter="submit">
+			 <forward name="success"  path="/Newfindall.jsp" />
+			 <forward name="findAll" path="/Newfindall.jsp" /> 
+			 <forward name="fail" path="/Newaddbook.jsp" />	
+   </action>
+   
+   
+   <action path="/returnupdatedelete" type="controller.SelectAction" name="library" >
+			<forward name="updatedelete" path="/updatedelete.jsp" > </forward>
+		</action>
+		
+		<action path="/update"  type="controller.NewAddLibraryAction" parameter="submit">
+			<forward name="update" path="/update.jsp"></forward>
+		</action>
+		
+		 <action  path="/fileUpload" name="uploadform" type="controller.FileUploadAction" parameter="method"  scope="request" input="/fileUpload.jsp"   >
+<!--         <forward name="uploadform" path="/fileUpload.jsp" ></forward> -->
+        <forward name="success" path="/fileUploadSuccess.jsp" />
+        </action>
+   	<!-- <action path="/findall"  name="library" type="controller.NewAddLibraryAction" validate="false" parameter="findall">
+			<forward name="findAll" path="/Newfindall.jsp" />
+	</action>
+    -->
+<!-- MYnew changes ends for edit and delete -->                            <!-- MYnew changes ends for edit and delete -->
+
+
+
+	<!-- <action-mappings>
+		 <action path="/savebook" name="library"  type="controller.AddLibraryAction" input="/addbooks.jsp" parameter="savebook">
+			 <forward name="success"  path="/booklist.jsp" />
+			<forward name="fail" path="/fail.jsp" /> 
+			<forward name="failsave" path="/addbooks.jsp" /> 	
+   </action> -->
+		
+	<!-- 	to update book -->                                              	<!-- 	to update book -->
+		
+		<action path="/updat" name="library" validate="false"  type="controller.EditBookController" >
+				<forward name="updateform" input="/upatebookform.jsp" path="/updatebookform.jsp"> </forward>
+				<forward name="fail" path="/updatebookfail.jsp"></forward>
+		</action>
+
+		<action path="/saveupdatebook" name="library"  input="/updatebookform.jsp" type="controller.AddLibraryAction" parameter="updatebook" >
+				<forward name="booklist" path="/booklist.jsp"> </forward>
+				<forward name="fail" path="/fail.jsp"></forward>
+		</action>
+
+		<action path="/updatebook/{}" name="library"  type="controller.AddLibraryAction" parameter="updatebook" >
+				<forward name="booklist" path="/booklist.jsp"> </forward>
+				<forward name="fail" path="/fail.jsp"></forward>
+		</action>
+		<!-- end	to update book -->                            	<!-- end	to update book -->
+		
+		
+		 <action path="/deletebook" name="library" type="controller.AddLibraryAction"  validate="false" parameter="deletebook">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/deletebookfail.jsp" /> 
+		</action>
+		
+		<action path="/findbook" name="library" type="controller.AddLibraryAction" parameter="findbook" validate="false">
+		<forward name="find"  path="/findlistbooks.jsp" />
+			<!-- <forward name="fail" path="/findbookfail.jsp" /> -->
+		</action>
+		
+	
+		<action path="/booklist"  name="library" type="controller.LibraryList" validate="false">
+			<forward name="list" path="/booklist.jsp" />
+		</action>
+		
+		<action path="/bookstatus" name="library" type="controller.AddLibraryAction" input="/bookstatus.jsp" parameter="bookstatus">
+		<forward name="list"  path="/bookstatus.jsp" />
+			<forward name="fail" path="/fail.jsp" />
+		</action>
+		
+		<!-- emp mapping -->
+		
+		 <action path="/saveemp" name="emp"  type="controller.EmployeeAction" input="/empdetails.jsp" parameter="saveemp">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/fail.jsp" /> 
+			<forward name="empadd" path="/empdetails.jsp"></forward>
+		</action> 
+		
+		 <action path="/empupdate" name="emp"  type="controller.EmployeeAction" input="/empupdate.jsp" parameter="empupdate">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/empupdatefail.jsp" />  
+		</action> 
+		
+		 <action path="/empdelete" name="emp"  type="controller.EmployeeAction" validate="false" parameter="empdelete">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/empdeletefail.jsp" /> 
+		</action> 
+		
+		
+			<action path="/empfind" name="emp" type="controller.EmployeeAction" validate="false" parameter="empfind">
+		<forward name="findemp"  path="/empfindlist.jsp" />
+			<forward name="fail" path="/fail.jsp" />
+		</action>
+		
+		
+		<action path="/emplist"  name="emp" type="controller.EmployeeAction" parameter="emplist" validate="false">
+			<forward name="listemp" path="/emplist.jsp" />
+		</action>
+		
+		<!-- BORROW BOOK -->
+	
+		 <action path="/borrowbook" name="borrow"  type="controller.BorrowAction" input="/borrowbook.jsp" parameter="borrowbook">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/borrowbook.jsp" /> 
+		</action> 
+		
+		 <action path="/returnbook" name="borrow"  type="controller.BorrowAction"  validate="false" parameter="returnbook">
+			 <forward name="success"  path="/success.jsp" />
+			<forward name="fail" path="/returnbookfail.jsp" /> 
+		</action> 
+		
+          <action path="/bookstatus"   type="controller.BorrowAction" parameter="bookstatus">
+		     	 <forward name="success"  path="/bookstatus.jsp" />
+			   <forward name="fail" path="/fail.jsp" /> 
+	       	</action> 		
+		
+		
+			<action path="/datelist"  name="borrow" type="controller.BorrowAction" parameter="datelist" validate="false">
+			<forward name="success" path="/datelist.jsp" />
+		</action>
+			
+	<!-- 	 this is    --> 
+	
+		 <action path="/addempfind" name="emp" validate="true" type="controller.AddEmpAction" parameter="empfind">
+			 <forward name="find"  path="/find.jsp" />
+			
+		</action> 
+		
+    <!--    Ends hear	 -->
+    <!--  LOGIN MODULE-->
+	
+		<action path="/login" name="login"
+			type="controller.LoginAction" input="/login.jsp"  scope="request">
+			<forward name="login" path="/login.jsp" />
+			<forward name="home" path="/home.jsp" />
+		</action>
+		<action path="/logout" type="controller.LogoutAction">
+			<forward name="logout" path="/logout.jsp"></forward>
+		</action>
+		
+<!-- 		<action path="/listemp" type="controller.ListEmpAction">
+			<forward name="listemp" path="/listemp.jsp" />
+		</action>
+		
+		<action path="/download" type="controller.downloadfile">
+			<forward name="downloademp" path="/showpicdetails.jsp" />
+		</action>
+		 -->
+		 <!--REGISTER MODULE-->
+		 
+	 	<action path="/adminreg" name="admin" type="controller.AddAdminCrud" input="/reg.jsp" scope="request" parameter="submit">
+		<forward name="success" path="/regdetail.jsp"/>
+			<forward name="failreg" path="/reg.jsp" />
+			<forward name="reg" path="/regdetail.jsp" />
+			<!-- <forward name="reg" path="/reg.jsp" /> -->
+			</action>
+			
+			<action
+			 path="/reglist"  name="admin" type="controller.RegList">
+			<forward name="reglist" path="/reglist.jsp" />
+		</action>
+	</action-mappings>
+	 <message-resources parameter="resources/ApplicationResources"/> 
+ 
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn" >
+	<set-property property="pathnames" value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"/>
+    </plug-in> 
+     
+ 
+</struts-config>
